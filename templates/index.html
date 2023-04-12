@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head>
+        <title>산업재해발생 예측</title>
+        <style>
+            body {
+                background-image: url('/static/1234.jpg');
+                background-size: cover;
+	    color: red;
+  	    display: flex;
+  	    flex-direction: column;
+	    justify-content: center;
+	    align-items: center;
+	    height: 100vh;	
+            }
+        </style>
+    </head>
+    <body style="text-align: center;">
+        <h1>산업재해발생 예측을 위해 아래의 칸에 입력해주세요</h1>
+        <p>이 웹페이지는 산업재해발생을 예측하기 사이트입니다. 입력한 정보를 기반으로 머신러닝 모델이 예측을 수행하며, 예측 결과는 화면에 표시됩니다.</p>
+        <p>직원수는 자연수의 형태로, 2000 미만으로 입력해 주세요.</p>
+        <p>근로시간은 자연수의 형태로, 4000 미만으로 입력해 주세요.</p>
+        <form action="/" method="post">
+            <label for="직원 수">직원 수:</label>
+            <input type="number" id="AAE" name="AAE" required>
+            <br><br>
+            <label for="근로시간">근로시간:</label>
+            <input type="number" id="EHW" name="EHW" required>
+            <br><br>
+            <label for="산업군">산업군:</label>
+            <select id="Industry" name="Industry" required>
+                <option value="">산업군 선택</option>
+                <option value="CS">건설업</option>
+                <option value="TW">운송업</option>
+                <option value="MF">제조업</option>
+            </select>
+            <br><br>
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+        {% endif %}
+    </body>
+</html>
